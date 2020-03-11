@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Alan Philipiert">
+    <meta name="description" content="Organisez votre voyage au Japon !">
+    <meta name="keywords" content="Voyage, Japon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephi Place</title>
+    <link rel="icon" type="image/png" href="img/tori-icone.png">
+    <link rel="stylesheet" href="biens.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="biens.js"></script>
+</head>
+<body>
+    <div class="imageIntro">
+
+    </div>
+    <div id="conteneurTout">
+        <div id="conteneurRecherche">
+                <form action="post" id="formulaireRecherche">
+                    <div class="conteneurLocalisation">
+                        <label for="localisation">Localisation</label>
+                        <input type="text" id="localisation" name="localisation">
+                    </div>
+                    <div id="conteneurCriteresRecherche">
+                        <div>
+                            <select>
+                                <option selected>Type de bien</option>
+                                <option>Villa</option>
+                                <option>Appartement</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="etage">Etage :</label>
+                            <select id="etage">
+                                <option selected></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="conteneurTranche">
+                            <label for="superficie">Supercifie</label>
+                            <div class="conteneurEntreeSortie">
+                                <input type="range" class="range" name="superficie" min="0" max="100" step="1" value="50"/>
+                                <output></output>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="nbPiece">Nombres de pièces :</label>
+                            <select id="nbPiece">
+                                <option selected></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div id="conteneurDependance">
+                            <label for="dependance">Dépendances : </label>
+                            <select id="dependance">
+                                <option selected></option>
+                                <option>Garage</option>
+                                <option>Terrasse</option>
+                                <option>Cave/Sous-sol</option>
+                                <option>Veranda</option>
+                                <option>Abris de jardin</option>
+                                </select>
+                            </div>
+                        <div class="conteneurTranche">
+                            <label for="prix">Prix</label>
+                            <div class="conteneurEntreeSortie">
+                                <input type="range" class="prix" name="prix" min="0" max="1000000" step="1000" value="0"/>
+                                <output></output>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="conteneurEnvoieRecherche">
+                        <input class="envoieRecherche" type="submit" value="Rechercher">
+                    </div>
+                </form>
+            </div>
+        <div id="conteneurListe">
+            <div class="conteneurBienListe">
+                <div class="bienListe">
+                    <div class="conteneurImageListe">
+                        <a href="#" class="ADecouvrir">Découvrir</a>
+                    </div>
+                    <div class="texteListe">
+                        <p><span class="enGras">Description : </span>Lorem ipsum dolor sit amet, elect adpipiscing consectetur.</p>
+                        <p><span class="enGras">Localisation : </span></p>
+                        <p><span class="enGras">Prix : </span></p>
+                    </div>
+                </div>
+                <div class="bienListe">
+                    <div class="conteneurImageListe">
+                        <a href="#" class="ADecouvrir">Découvrir</a>
+                    </div>
+                    <div class="texteListe">
+                        <p><span class="enGras">Description : </span>Lorem ipsum dolor sit amet, elect adpipiscing consectetur.</p>
+                        <p><span class="enGras">Localisation : </span></p>
+                        <p><span class="enGras">Prix : </span></p>
+                    </div>
+                </div>
+                <div class="bienListe">
+                    <div class="conteneurImageListe">
+                        <a href="#" class="ADecouvrir">Découvrir</a>
+                    </div>
+                    <div class="texteListe">
+                        <p><span class="enGras">Description : </span>Lorem ipsum dolor sit amet, elect adpipiscing consectetur.</p>
+                        <p><span class="enGras">Localisation : </span></p>
+                        <p><span class="enGras">Prix : </span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="conteneurPagination">
+                <a href="#" class="paginationBien">1</a>
+                <a href="#" class="paginationBien">2</a>
+                <a href="#" class="paginationBien">3</a>
+                <a href="#" class="paginationBien">4</a>
+            </div>
+        </div>
+    </div>
+                                <!--<p>Dépendances :</p>
+                            <div id="conteneurDependanceCheck">
+                                <div>
+                                    <label for="garage">Garage</label>
+                                    <input type="checkbox" id="garage" name="garage">
+                                </div> 
+                                <div>
+                                    <label for="cave">Cave/Sous-sol</label>
+                                    <input type="checkbox" id="cave" name="cave">
+                                </div>
+                                <div>
+                                    <label for="terrasse">Terrasse</label>
+                                    <input type="checkbox" id="terrasse" name="terrasse">
+                                </div>
+                                <div>
+                                    <label for="veranda">Veranda</label>
+                                    <input type="checkbox" id="veranda" name="veranda">
+                                </div>
+                                <div>
+                                    <label for="abris">Abris de jargin</label>
+                                    <input type="checkbox" id="abris" name="abris">
+                                </div>
+                                -->
+</body>
+
+</html>

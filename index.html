@@ -6,67 +6,54 @@
                         <meta name="author" content="Clara Vesval et Alan Philipiert">
                         <meta name="keywords" content="Stephi place, agence immobilière, maisons, villas">
 						<meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        
-
                         <title> Stephi Place </title>
                         <link rel="stylesheet" href="css/main.css">
 						<link rel="stylesheet" href="css/normalize.css">
 						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
                         <link rel="icon" href="img/favicon.ico">
-                    </head> 
-                
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"></script>
+                        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+                    </head>                 
                     <body>
-                
-                        <header id="containerMenu">
-                                <div id="logo">
-                                    <img src="img/logo.png"> </img>
-                                    <h1> Canalisation </h1>
+                        <header>
+                            <nav id="navigation">                               
+                                <div class="logo"><a href="#"></a><img class="logoAcceuil" src="img/logo.png" alt="Logo de l'accueil"></div>
+                                <div class="annonce"><a href="#">Déposer une annonce</a></div>
+                                <ul id="menu">
+                                    <li class="accueil"><a href="#">Accueil</a></li>
+                                    <li><a href="#"><i style='font-size:24px' class='fas'>&#xf015;</i>Nos agences</a></li>
+                                    <li><a href="#"><i style='font-size:24px' class='fas'>&#xf007;</i>Mon espace</a></li>
+                                    <li><a href="#"><i style='font-size:24px' class='fas'>&#xf007;</i>Se connecter</a></li>
+                                </ul>
+                            </nav>
+                            <section id="conteneurImageEntête">
+                                <div class="imageEntête">
+                                    <img class="imageTête" src="img/" alt="">
                                 </div>
-                
-                                <nav id="mainMenu">
-                                    <ul class="menu">
-                                        <li><a href="index.html">Accueil</a></li>
-                                        <li><a href="biographie.html">Biographie</a></li>
-                             
-                                    </ul>
-                                </nav>
+                            </section>
+                            <section id="conteneurBarreDeRecherche">
+                                <div class="barreDeRecherche">
+                                    <form class="" action="php/main.php" methode="post">
+                                        <div class="conteneurTypeDeBien">
+                                            <label for="typeDeBien"></label>
+                                            <select name="typeDeBien" id="typeDebien" value="Type de Bien">
+                                                <option value="" selected="selected">Type de Bien</option>
+                                                <option value="">Villa</option>
+                                                <option value="">Appartement</option>
+                                            </select>
+                                        </div>
+                                        <div class="conteneurSuperficie">
+                                            <label for="superficie">Superficie</label>
+                                            <input type="range" name="superficie" id="superficie" min="0" max="300">
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </section>
                         </header>
-                
-                        
-                            <div id="conteneur"> 
-                            <div id="contenu" >
-                                <h1> Stephi Place </h1>
-                                <br /><br />
-                
-                                <p>
-                                    Duo Reges: constructio interrete. Sed fortuna fortis; 
-                                    Sed quid sentiat, non videtis. Conferam tecum, quam cuique verso rem subicias; 
-                                    Quis suae urbis conservatorem Codrum, quis Erechthei filias non maxime laudat?
-                                    Solum praeterea formosum, solum liberum, solum civem, stultost;Potius inflammat, 
-                                    ut coercendi magis quam dedocendi esse videantur. Nam adhuc, meo fortasse vitio, 
-                                    quid ego quaeram non perspicis. Teneo, inquit, finem illi videri nihil dolere.
-                                </p>
-                                <br />
-                
-			</div>
-		</div>
 
-		<footer>
-			<div class="info">
-				<br />
-				<div class="social">
-					<a href="https://www.instagram.com/bigfloetoli/" target="_blank"><img class="sociaux" src="img/instagram.png" alt="instagram"></a> 
-					<a href="https://twitter.com/bigfloetoli" target="_blank"><img class="sociaux" src="img/twitter.png" alt="twitter"></a> 
-					<a href="https://www.facebook.com/bigfloetoli/?fref=ts" target="_blank"><img class="sociaux" src="img/facebook.png" alt="facebook"></a> 
-				</div>
-				<br />
-				<div class="mentions"> 
-					<small> Site 2020 | Réalisé par Clara Vesval et Alan Philipiert | Tous droits réservés |  </small>
-				</div>
-			</div>
-		</footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js%22%3E</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js%22%3E"></script>
 <script src="js/main.js"> </script>
 	</body>
 </html>
