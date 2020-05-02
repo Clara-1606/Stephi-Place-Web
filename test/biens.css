@@ -6,6 +6,11 @@ body{
     box-sizing: border-box;
 }
 
+#conteneurTout{
+    background-color: lightgray;
+    padding-bottom: 1%;
+}
+
 /**Entête**/
 
 #enTete{
@@ -16,6 +21,7 @@ body{
     background-color: #CA1809;
     padding-top: 1%;
     padding-bottom: 1%;
+    border-bottom: 5px solid black;
 }
 
 #enTeteGauche{
@@ -37,6 +43,8 @@ body{
 
 #enTeteGauche > .depotAnnonce{
     width: 60%;
+    background-color: white;
+    transition: all 0.5s ease-out;
 }
 
 #enTeteGauche > .depotAnnonce > a{
@@ -51,10 +59,12 @@ body{
     padding-top: 2%;
     cursor: pointer;
     border: 1px solid black;
+    box-shadow: 0px 5px 5px black;
 }
 
 #enTeteGauche > .depotAnnonce > a:hover{
     background-color: rgb(247, 34, 15);
+    transition: all 0.5s ease-in;
 }
 
 #enTeteDroite{
@@ -74,17 +84,21 @@ body{
     display: inline-block;
     width: 100%;
     list-style-type: none;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    box-shadow: 0px 5px 5px black;
+    background-color: white;
+    transition: all 0.5s ease-out;
 }
 
 #enTeteDroite > nav > ul > li:hover{
     background-color: rgb(247, 34, 15);
+    transition: all 0.5s ease-in;
 }
 
 #enTeteDroite > nav > ul > .bordureDroite{
-    border-right: 1px solid black;   
+    border-right: 2px solid black;   
 }
 
 #enTeteDroite > nav > ul > li > a{
@@ -117,7 +131,7 @@ body{
     background-position: 50% 50%;
     padding-bottom: 10%;
     padding-top: 10%;
-    margin-bottom: 1%;
+    border-bottom: 5px solid black;
 }
 
 /***Liste Article***/
@@ -135,6 +149,7 @@ body{
     width: 80%;
     border: 5px solid black;
     padding: 2%;
+    background-color: white;
 }
 
 .conteneurBienListe{
@@ -208,9 +223,11 @@ body{
     flex-flow: column nowrap;
     align-items: center;
     width: 40%;
-    border: 5px solid black;
+    border: 1px solid black;
     padding: 1%;
     margin-bottom: 1%;
+    margin-top: 1%;
+    background-color: white;
 }
 
 #conteneurCriteresRecherche{
@@ -260,6 +277,26 @@ body{
     justify-content: center;
 }
 
+#conteneurEnvoieRecherche{
+    background-color: white;
+    margin-top: 3%
+}
+
+.envoieRecherche{
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px black;
+    padding-top: 25%;
+    padding-bottom: 25%;
+    padding-left: 50%;
+    padding-right: 50%;
+    font-weight: bold;
+}
+
+.envoieRecherche:hover{
+    background-color: lightgray;
+}
+
 /**Pagination**/
 
 .paginationBien{
@@ -297,15 +334,30 @@ body{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    background-color: antiquewhite;
-    border-top: 5px double #fe1b00 ;
-    margin-top: 1%;
+    background-color: #CA1809;
+    border-top: 5px double black ;
 }
 
 .lienFinLogo{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lienFinLogo > .stats{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-right: 5%;
+}
+
+.lienFinLogo > .stats > span{
+    font-weight: bold;
+}
+
+.finLogo{
+    width: 20%;
 }
 
 .reseauxSociaux{
@@ -322,9 +374,6 @@ body{
     width: 15%;
 }
 
-.finLogo{
-    width: 50%;
-}
 
 .finMenu{
     width: 100%;
@@ -349,10 +398,9 @@ body{
 }
 
 .finMenu > ul > li > a:hover {
-    color: rgb(78, 78, 78);
+    color: darkgray;
 }
 
 .copyright{
     font-size: 0.8em;
-    color: rgb(97, 97, 97);
 }
