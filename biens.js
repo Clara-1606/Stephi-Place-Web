@@ -106,10 +106,12 @@ var con = document.getElementsByClassName("okConnexion")[0];
 
 con.onclick = function() {
 	$('body').addClass('connecte')
+	/*var text = document.getElementById('connexionBouton').innerText = "Mon espace";*/
 	fenetre.style.display = "none";
 }
 
 var dec = document.getElementsByClassName("deconnexionBouton")[0];
 dec.onclick = function() {
 	$('body').removeClass('connecte')
+	/*var text = document.getElementById('connexionBouton').innerText = "Connexion";*/
 }

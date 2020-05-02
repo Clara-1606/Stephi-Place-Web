@@ -1,3 +1,4 @@
+/*Responsive jusqu'à 1215px*/
 body{
     margin: 0;
     position: relative;
@@ -116,10 +117,7 @@ body{
 }
 
 #enTeteDroite > nav > ul > li{
-    display: flex;
-    flex: row nowrap;
-    align-items: center;
-    align-content: center;
+
     list-style-type: none;
     background-color: white;
     transition: all 0.5s ease-out;
@@ -130,11 +128,12 @@ body{
     color: black;
     font-size: 1.5em;
     cursor: pointer;
+    transition: all 0.3s ease-in;
 }
 
 #enTeteDroite > nav > ul > li > a:hover{
     text-decoration: none;
-    transition: all 0.5s ease-in;
+    transition: all 0.3s ease-in;
     color: #CA1809;
 }
 
@@ -155,6 +154,8 @@ a>.material-icons{
 
 .deconnexionBouton{
     display: none;
+    position: relative;
+    right:10rem;
 }
 
 .connecte .deconnexionBouton{
@@ -170,6 +171,23 @@ a>.material-icons{
 .connecte #connexionBouton{
     display: none;
 }
+
+.monEspace{
+    display: none;
+    position: relative;
+    right: 9rem;
+}
+
+.connecte .monEspace{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.monEspace a{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
 
 /**Fenetre de connexion**/
 
@@ -352,7 +370,7 @@ transition: all 0.5s ease-out;
 
 }
 
-.custom-dropdown{
+.choixTypeBien{
     border: 1px solid black;
     border-radius: 10px;
     padding: 0.5rem;
@@ -361,27 +379,26 @@ transition: all 0.5s ease-out;
 
 @supports (pointer-events: none) and ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
 
-    .custom-dropdown {
+    .choixTypeBien {
         position: relative;
         display: inline-block;
         vertical-align: middle;
     }
 
-    .custom-dropdown__select {
+    .choixTypeBienSelection {
         border: 0;
         -webkit-appearance: none;
         -moz-appearance: none;
-        appearance: none;
-        cursor: pointer;  
+        appearance: none; 
     }
 
-    .custom-dropdown::before, .custom-dropdown::after {
+    .choixTypeBien::before, .choixTypeBien::after {
         content: "";
         position: absolute;
         pointer-events: none;
     }
 
-    .custom-dropdown::after {
+    .choixTypeBien::after {
         content: "\25BC";
         height: 1em;
         font-size: 0.8em;
@@ -390,27 +407,27 @@ transition: all 0.5s ease-out;
         top: 50%; margin-top: -.5em;
     }
 
-    .custom-dropdown::before {
+    .choixTypeBien::before {
         width: 2em;
         right: 0; top: 0; bottom: 0;
         border-radius: 0 3px 3px 0;
     }
 
-    .custom-dropdown__select[disabled] {
+    .choixTypeBienSelection[disabled] {
         color: #CA1809;
     }
 
-    .custom-dropdown.custom-dropdown--disabled::after {
+    .choixTypeBien.choixTypeBien--disabled::after {
         color: #CA1809;
     }
 
-    .custom-dropdown--white::before {
+    .choixTypeBien::before {
         top: .5em; bottom: .5em;
         background-color: #fff;
         border-left: 1px solid rgba(0,0,0,.1);
     }
 
-    .custom-dropdown--white::after {
+    .choixTypeBien::after {
         color: #CA1809;
     }
 }
@@ -622,15 +639,15 @@ color:#CA1809;
     display: none;
     position: absolute;
     opacity: 0;
-    top: 38.2em;
-    left: 31.8em;
+    top: 39.5em;
+    left: 31.3em;
 }
 
 .criterePrix{
     display: none;
     position: absolute;
     opacity: 0;
-    top: 38.2em;
+    top: 39.5em;
     left: 48.5em;
 }
 
@@ -638,8 +655,8 @@ color:#CA1809;
     display: none;
     position: absolute;
     opacity: 0;
-    top: 38.2em;
-    left: 40.15em;
+    top: 39.5em;
+    left: 40.65em;
 }
 
 .deplierPrix .criterePrix{
@@ -774,9 +791,10 @@ color:#CA1809;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    width: 80%;
     color: #CA1809;
     font-size: 2rem;
+    margin-top: 3rem;
 }
 
 
@@ -797,6 +815,7 @@ color:#CA1809;
     justify-content: center;
     align-items: center;
     margin-top: 8rem;
+    margin-bottom: 3rem;
 }
 
 .conteneurApplication > span{
