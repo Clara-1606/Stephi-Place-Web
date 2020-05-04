@@ -2,15 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Alan Philipiert, Clara Vesval">
-    <meta name="description" content="La confiance d'un groupe d'agences immobilières innovantes, la maison de vos rêves se trouve ici !">
-    <meta name="keywords" content="StephiPlace, immobilier, maison, appartement, villa, biens immobiliers, vente immobilier, achat immobilier, agence immoblière">
+    <meta name="author" content="Alan Philipiert">
+    <meta name="description" content="Organisez votre voyage au Japon !">
+    <meta name="keywords" content="Voyage, Japon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stephi Place</title>
     <link rel="icon" type="image/png" href="img/tori-icone.png">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="css/normalize.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="js/main.js"></script>
     <link rel="icon" type="image/png" href="img/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,14 +19,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>
     <div id="enTete">
         <div id="enTeteGauche">
             <a id="accueilStephi" href="index.php">StephiPlace</a>
             <div class="depotAnnonce">
-                <a href="deposer.php"><i class='far fa-plus-square'></i><span>Déposer une annonce</span></a>
+                <a href="#"><i class='far fa-plus-square'></i><span>Déposer une annonce</span></a>
             </div>
         </div>
         <div id="enTeteDroite">
@@ -163,7 +164,7 @@ while($line=$stmt->fetch(PDO::FETCH_ASSOC))
             <img src='.$line['premiere_image'].' alt="image bien">
         </div>
         <div class="texteBien">
-            <span class="titreBien">'.$line['libelle'].' '.$line['nb_piece'].' pièces de '.intval($line['superficie']).'m2</span>
+            <span class="titreBien">'.$line['libelle'].'</span>
             <span class="description">'.$line['descriptif'].'</span>
             <div class="infoBien">
                 <span class="localisationInfo">Localisation :</span>
@@ -222,7 +223,7 @@ while($line=$stmt->fetch(PDO::FETCH_ASSOC))
         <p class="copyright">Tous droits réservés. Conditions générales. Réseau de franchise immobilière. Chaque agence est financièrement et juridiquement indépendante.</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
