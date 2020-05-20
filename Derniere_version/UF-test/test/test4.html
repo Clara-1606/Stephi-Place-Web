@@ -1,0 +1,29 @@
+<style>
+    #plan1{
+        background-color: #00700f;
+        width: 900px;
+        height: 636px;
+        margin-left: 325px;
+        position: absolute;
+        z-index:0;
+    }
+    #plan2{
+        opacity: 0;
+        background-color: #ff0000;
+        width: 900px;
+        height: 636px;
+        margin-left: 325px;
+        position: relative;
+        z-index:1;
+    }
+
+    #plan1:hover + #plan2{
+        opacity: 1;
+    }
+    #plan2:hover{
+        opacity: 1;
+    }
+    
+</style>
+<div id="plan1"></div>
+<div id="plan2"></div>
