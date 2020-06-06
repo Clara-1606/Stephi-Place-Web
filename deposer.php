@@ -1,5 +1,3 @@
-
-
 <?php session_start (); ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,9 +30,17 @@ catch(PDOException $e){
     exit;
 }
 
+$monMail=$_SESSION['email'];
+
 $selectAgence="SELECT id_agence, nom_agence FROM agence";
 $stmt1=$cnx->prepare($selectAgence);
 $stmt1->execute();
+
+$selectAgenceOblig="SELECT a.id_agence, nom_agence FROM agence as a
+INNER JOIN membre as m ON m.id_agence=a.id_agence
+WHERE mail='$monMail'";
+$stmt3=$cnx->prepare($selectAgenceOblig);
+$stmt3->execute();
 
 $selectDependance="SELECT DISTINCT nom_dependance FROM dependance";
 $stmt2=$cnx->prepare($selectDependance);
@@ -45,33 +51,74 @@ $stmt2->execute();
         <div id="enTeteGauche">
             <a id="accueilStephi" href="index.php">StephiPlace</a>
             <div class="depotAnnonce">
-                <a href="#"><i class='far fa-plus-square'></i><span>Déposer une annonce</span></a>
+            <?php
+            if (isset($_SESSION['email'])&& isset($_SESSION['mdp'])) 
+            {
+                echo'
+                <a href="deposer.php"><i class="far fa-plus-square"></i><span>Déposer une annonce</span></a>';}
+            else{
+                echo'
+                <a class="connexionBouton" href="#"><i class="far fa-plus-square"></i><span>Déposer une annonce</span></a>';
+            }
+            ?>
             </div>
         </div>
         <div id="enTeteDroite">
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="#">Favoris</a></li>
-                    <li><a id="connexionBouton" href="#"><i class="material-icons">person</i>Connexion</a></li>
-                    <li class="monEspace"><a href="monespace.php"><i class="material-icons">person</i>Espace</a></li>
-                    <li><a class="deconnexionBouton" href="#"><i class="material-icons">person</i>Déconnexion</a></li>
+                    <?php
+                        if (isset($_SESSION['email'])&& isset($_SESSION['mdp'])) 
+                        {
+                            echo '<li class="monEspace"><a href="monespace.php"><i class="material-icons">person</i>Espace</a></li>
+                            <li><a class="deconnexionBouton" href="deconnexion.php"><i class="material-icons">person</i>Déconnexion</a></li>';
+                        } else {
+                            echo '<li><a class="connexionBouton" href="#"><i class="material-icons">person</i>Connexion</a></li>
+                            <li><a href="inscription.php">Inscription</a></li>';
+                        }  
+                    ?> 
                 </ul>
             </nav>
         </div>
     </div>
+    <div id="connexionFenetre" class="fenetre">
+            <div class="connexionFenetreContenu">
+                <span class="fermer">&times;</span>
+                <div class="connexionFenetreContenuSuite">
+                    <div class="bienvenueConteneur">
+                        <p class="bienvenue">Bienvenue !</p>
+                        <p class="bienvenueTexte">Merci de vous connecter pour accéder à toutes nos fonctionnalités.</p>
+                    </div>
+                    <form action="login.php" method="post">
+                        <div class="champConteneur">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="champConteneur">
+                            <label for="mdp">Mot de passe</label>
+                            <input type="password" id="mdp" name="mdp" required>
+                            <a class="motOublie" href="#">Mot de passe oublié</a>
+                        </div>
+                        <a class="okConnexion" href="indexphpl"><input class="envoiConnexion" type="submit" value="Se connecter"></a>
+                        <div>
+                            <a class="creerCompte" href="inscription.php">Créer un compte</a>
+                        </div>
+                    </form>
+                </div>
+            </div>     
+          </div>
     <div class="conteneurDeposerTout">
         <div class="membreTitre">
             <span>Déposer une annonce</span>
         </div>
         <div class="conteneurDeposer">
-            <form action="deposer.php" method="post" enctype="multipart/form-data">
+            <form action="depot-bien.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Type de biens</legend>
                     <div class="typeBien typeBienDepot">
-                        <input type="checkbox" id="maison" name="maison" class="box">
-                        <label for="maison" class="maison">Maison</label>
-                        <input type="checkbox" id="appartement" name="appartement" class="box">
+                        <input checked="checked" type="radio" id="villa" name="maison" value="villa" class="box">
+                        <label for="villa" class="maison">Maison</label>
+                        <input type="radio" id="appartement" name="maison" value="appartement" class="box">
                         <label for="appartement">Appartement</label>
                     </div>
                 </fieldset>
@@ -82,25 +129,25 @@ $stmt2->execute();
                         <div>
                             <div class="champDepot etageAppartement">
                                 <label for="etageDepot">Etage pour Appartement</label>
-                                <input disabled="disabled" type="number" id="etageDepot" name="etageDepot">
+                                <input type="number" id="etageDepot" name="etageDepot">
                             </div>     
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="pieceDepot">Nombre de pièces</label>
-                                <input type="number" id="pieceDepot" name="pieceDepot">
+                                <input type="number" id="pieceDepot" name="pieceDepot" required>
                             </div>
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="chambreDepot">Nombre de chambres</label>
-                                <input type="number" id="chambreDepot" name="chambreDepot">
+                                <input type="number" id="chambreDepot" name="chambreDepot" required>
                             </div>
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="superficieDepot">Superficie</label>
-                                <input type="number" id="superficieDepot" name="superficieDepot">
+                                <input type="number" id="superficieDepot" name="superficieDepot" required>
                             </div>
                         </div>  
                     </div>
@@ -111,7 +158,7 @@ $stmt2->execute();
                         <div>
                             <div class="champDepot">
                                 <label for="adresseDepot">Adresse</label>
-                                <input type="text" id="adresseDepot" name="adresseDepot">
+                                <input type="text" id="adresseDepot" name="adresseDepot" required>
                             </div>
                         </div>
                         <div>
@@ -123,13 +170,13 @@ $stmt2->execute();
                         <div>
                             <div class="champDepot">
                                 <label for="villeDepot">Ville</label>
-                                <input type="text" id="villeDepot" name="villeDepot">
+                                <input type="text" id="villeDepot" name="villeDepot" required>
                             </div>
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="codePostalDepot">Code postal</label>
-                                <input type="text" id="codePostalDepot" name="codePostalDepot">
+                                <input type="text" id="codePostalDepot" name="codePostalDepot" required>
                             </div>
                         </div>
                         <div>
@@ -137,11 +184,12 @@ $stmt2->execute();
                                 <span class="titreAgenceDepot">Agences</span>
                                 <span class="choixTypeBien">
                                     <select name="agenceListe" id="agenceListe" class="choixTypeBienSelection">
-                                    <?php foreach ($stmt1 as $c) { ?>
+                                    <?php foreach ($stmt3 as $c) { ?>
                                         <option value="<?=$c['id_agence']?>"><?=$c['nom_agence']?></option>
                                             <?php } ?>
                                     </select>
                                 </span>
+                                <span class="agenceMessage">Ceci est votre agence de référence, si vous voulez la modifier, rendez-vous sur votre espace</span>
                             </div>
                         </div>
                     </div>
@@ -157,6 +205,7 @@ $stmt2->execute();
                                             <span class="titreAgenceDepot">Dépendances</span>
                                             <span class="choixTypeBien">
                                                 <select name="dependanceListe" id="dependanceListe" class="choixTypeBienSelection">
+                                                    <option selected="selected" value=""></option>
                                                     <?php foreach ($stmt2 as $c) { ?>
                                                     <option value="<?=$c['nom_dependance']?>"><?=$c['nom_dependance']?></option>
                                                         <?php } ?>
@@ -172,18 +221,21 @@ $stmt2->execute();
                                 <div class="conteneurAjoutDependance">
                                     <i class='ajoutDependance far fa-plus-square'></i><span>Ajouter une dépendance supplémentaire</span>
                                 </div>
+                                <div class="conteneurSupprimerDependance">
+                                    <i class='supprimerDependance far fa-minus-square'></i><span>Retirer une dépendance</span>
+                                </div>
                             </div>
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="imageDepot">Photo</label>
-                                <input type="file" accept="image/png, image/jpeg, image/jpg" id="imageDepot" name="imageDepot">
+                                <input type="file" accept="image/png, image/jpeg, image/jpg" id="imageDepot" name="imageDepot" required>
                             </div>
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="description">Description</label>
-                                <input type="textarea" id="description" name="description">
+                                <input type="textarea" id="description" name="description" required>
                             </div>
                         </div>
                     </div>
@@ -194,19 +246,19 @@ $stmt2->execute();
                         <div>
                             <div class="champDepot">
                                 <label for="prixVenteDepot">Prix de Vente</label>
-                                <input type="number" id="prixVenteDepot" name="prixVenteDepot">
+                                <input type="number" id="prixVenteDepot" name="prixVenteDepot" required>
                             </div>
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="prixMinDepot">Prix Minimum</label>
-                                <input type="number" id="prixMinDepot" name="prixMinDepot">
+                                <input type="number" id="prixMinDepot" name="prixMinDepot" required>
                             </div>
                         </div>
                         <div>
                             <div class="champDepot">
                                 <label for="prixMaxDepot">Prix Maximum</label>
-                                <input type="number" id="prixMaxDepot" name="prixMaxDepot">
+                                <input type="number" id="prixMaxDepot" name="prixMaxDepot" required>
                             </div>
                         </div>
                     </div>
@@ -258,96 +310,9 @@ $stmt2->execute();
         <p class="copyright">&copy; 2020. Stephi Place France.</p>
         <p class="copyright">Tous droits réservés. Conditions générales. Réseau de franchise immobilière. Chaque agence est financièrement et juridiquement indépendante.</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 
 </html>
-<?php
-
-try{
-    $cnx = new PDO('mysql:host=localhost;dbname=UF;port=3307', 'root','');
-}
-catch(PDOException $e){
-    print($e->getMessage()."\n");
-    exit;
-}
-
-
-if(isset($_POST['etageDepot']) && isset($_POST['pieceDepot']) && isset($_POST['chambreDepot']) && isset($_POST['superficieDepot']) && isset($_POST['adresseDepot']) && isset($_POST['complAdresseDepot']) && isset($_POST['villeDepot']) && isset($_POST['codePostalDepot']) && isset($_POST['description']) && isset($_POST['prixVenteDepot']) && isset($_POST['prixMinDepot']) && isset($_POST['prixMaxDepot']) && isset($_POST['dependanceListe']) && isset($_POST['superficieDepDepot']))
-        {
-            $etage=$_POST['etageDepot'];
-            $piece=$_POST['pieceDepot'];
-            $ch=$_POST['chambreDepot'];
-            $sup=$_POST['superficieDepot'];
-            $supDep=$_POST['superficieDepDepot'];
-            $ad=$_POST['adresseDepot'];
-            $cad=$_POST['complAdresseDepot'];
-            $ville=$_POST['villeDepot'];
-            $cp=$_POST['codePostalDepot'];
-            $des=$_POST['description'];
-            $pVente=$_POST['prixVenteDepot'];
-            $pMin=$_POST['prixMinDepot'];
-            $pMax=$_POST['prixMaxDepot'];
-            $dateAjout=date('Y-m-d');
-            $dep=$_POST['dependanceListe'];
-            $aj = "INSERT INTO biens (superficie,prix_min, prix_max, prix_vente, nb_piece, nb_chambre, date_ajout, descriptif, etage, id_statut) VALUES (?,?,?,?,?,?,?,?,?,?)";
-            $stmt=$cnx->prepare($aj);
-            $stmt->execute([$sup, $pMin, $pMax, $pVente, $piece, $ch, $dateAjout, $des, $etage,1]);
-
-            $selIdBien="SELECT MAX(id_bien) AS maxBien FROM biens";
-            $stmt3=$cnx->prepare($selIdBien);
-            $stmt3->execute([$selIdBien]);
-            while($line=$stmt3->fetch(PDO::FETCH_ASSOC))
-            { 
-                $maxB=$line['maxBien'];
-            }
-
-            $ajAd="INSERT INTO adresse (adresse, complement_adresse, code_postal, ville) VALUES (?,?,?,?)";
-            $stmt4=$cnx->prepare($ajAd);
-            $stmt4->execute([$ad, $cad, $cp, $ville]);
-
-            $ajDep = "INSERT INTO dependance (nom_dependance, id_bien) VALUES (?,?)";
-            $stmt5=$cnx->prepare($ajDep);
-            $stmt5->execute([$dep, $maxB]);
-        }/*
-if ($_POST['imageDepot']){
-
-    $uploaddir = '/img/biens/';
-    $uploadfile = $uploaddir . basename($_FILES['imageDepot']['name']);
-
-    echo '<pre>';
-    if (move_uploaded_file($_FILES['imageDepot']['tmp_name'], $uploadfile)) {
-    echo "Le fichier est valide, et a été téléchargé
-            avec succès. Voici plus d'informations :\n";
-    } else {
-    echo "Attaque potentielle par téléchargement de fichiers.
-            Voici plus d'informations :\n";
-    }
-
-    echo 'Voici quelques informations de débogage :';
-    print_r($_FILES);
-
-    echo '</pre>';
-
-    $filename='';
-    if (!empty($_FILES['imageDepot'])) {
-
-        $localisation = "img/biens/"; //Où on veut que le fichier aille
-        $file = $_FILES['imageDepot']['name']; //On récupère son nom
-
-        $path = pathinfo($file); //Récuperer le path où elle a été stockée
-        $fichier = $path['filename'];
-        $ext = $path['extension']; //On récupère son extension
-
-        $tmp = $_FILES['imageDepot']['tmp_name']; //On récupère son nom temporaire
-        $path_fichier_ext = $localisation . $fichier . '.' . $ext;
-        if (move_uploaded_file($tmp, $path_fichier_ext)) { //On bouge le fichier là où on veut qu'il soit
-            $fichier = 'img/biens/'.$fichier . '.' . $ext;
-        }
-    }
-}*/
-
-
-
-?>

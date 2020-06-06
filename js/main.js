@@ -91,6 +91,10 @@ $(function() {
 			$('body').removeClass('deplierFav')
 			$('body').addClass('deplierInfo')
 		}
+		else if ($(".deplierVend")[0]){
+			$('body').removeClass('deplierVend')
+			$('body').addClass('deplierInfo')
+		}
 		else if ($(".deplierInfo")[0]){
 			$('body').removeClass('deplierInfo')
 		}
@@ -112,6 +116,10 @@ $(function() {
 		}
 		else if ($(".deplierFav")[0]){
 			$('body').removeClass('deplierFav')
+			$('body').addClass('deplierAgence')
+		}
+		else if ($(".deplierVend")[0]){
+			$('body').removeClass('deplierVend')
 			$('body').addClass('deplierAgence')
 		}
 		else if ($(".deplierAgence")[0]){
@@ -137,6 +145,10 @@ $(function() {
 			$('body').removeClass('deplierFav')
 			$('body').addClass('deplierId')
 		}
+		else if ($(".deplierVend")[0]){
+			$('body').removeClass('deplierVend')
+			$('body').addClass('deplierId')
+		}
 		else if ($(".deplierId")[0]){
 			$('body').removeClass('deplierId')
 		}
@@ -160,6 +172,10 @@ $(function() {
 			$('body').removeClass('deplierId')
 			$('body').addClass('deplierFav')
 		}
+		else if ($(".deplierVend")[0]){
+			$('body').removeClass('deplierVend')
+			$('body').addClass('deplierFav')
+		}
 		else if ($(".deplierFav")[0]){
 			$('body').removeClass('deplierFav')
 		}
@@ -169,37 +185,64 @@ $(function() {
     })
 })(jQuery);
 
+(function($){
+    $('.boutonVend').click(function(){
+		if ($(".deplierInfo")[0]){
+			$('body').removeClass('deplierInfo')
+			$('body').addClass('deplierVend')
+		}
+		else if ($(".deplierAgence")[0]){
+			$('body').removeClass('deplierAgence')
+			$('body').addClass('deplierVend')
+		}
+		else if ($(".deplierId")[0]){
+			$('body').removeClass('deplierId')
+			$('body').addClass('deplierVend')
+		}
+		else if ($(".deplierFav")[0]){
+			$('body').removeClass('deplierFav')
+			$('body').addClass('deplierVend')
+		}
+		else if ($(".deplierVend")[0]){
+			$('body').removeClass('deplierVend')
+		}
+		else {
+			$('body').addClass('deplierVend')
+		}
+    })
+})(jQuery);
+
 /* CLONE DEPENDANCE */
 
 $(".conteneurAjoutDependance").click(function(){
 	$(".conteneurAjoutPlus:first").clone().appendTo(".conteneurDepAjout");
-  });
+});
+
+$(".conteneurSupprimerDependance").click(function(){
+	$(".conteneurAjoutPlus:last").remove();
+});
 
 /*ETAGE FORMULAIRE DEPOT*/
 
-$(document).ready(function(){
-
-	$('#appartement').click(function(){
-
-		if($(this).is(":checked")){
-
-			$("#etageDepot").removeAttr("disabled");
-
-		}
-
-		else if($(this).is(":not(:checked)")){
-
-			document.getElementById("etageDepot").setAttribute("disabled", "disabled");
-
-		}
-
+$(document).ready(function() {
+	//désactiver de base
+	$("#etageDepot").attr('disabled', true); 
+	//Si on a villa on désactive
+	$("form input:radio").change(function() {
+	  if ($(this).val() == "villa") {
+		$("#etageDepot").attr('checked', false);
+		$("#etageDepot").attr('disabled', true);
+	  }
+	//On active pour les autres boutons
+	  else {
+		$("#etageDepot").attr('disabled', false);
+	  }
 	});
-
-});
+  });
 
 /* FENETRE DE CONNEXION */
 
-$('#connexionBouton').click(function(){
+$('.connexionBouton').click(function(){
 	document.getElementById("connexionFenetre").style.display = "block";
 });
 
@@ -213,20 +256,41 @@ $('#connexionFenetre').click(function(event){
 	  }
 });
 
-/* Connexion - Deconnexion */
+var cpt = 5 ;
+var x ;
+ 
+function decompte()
+{
+    if(cpt>=0)
+    {
+        if(cpt>1)
+        {
+            var sec = " secondes.";
+        } else {
+            var sec = " seconde.";
+        }
+        document.getElementById("timer").innerHTML = "Vous allez être redirigé sur la page d'accueil dans " + cpt + sec ;
+        cpt-- ;
+        x = setTimeout("decompte()",1000) ;
+    }
+    else
+    {
+        clearTimeout(x) ;
+    }
+}
 
-$('.okConnexion').click(function(){
-	$('body').addClass('connecte')
-	document.getElementById("connexionFenetre").style.display = "none";
+/* FENETRE D'OFFRE */
+
+$('#offreBouton').click(function(){
+	document.getElementById("offreFenetre").style.display = "block";
 });
 
-
-$('.deconnexionBouton').click(function(){
-	document.getElementsByClassName("deconnexionBouton").onclick = function() {
-		$('body').removeClass('connecte')
-};
+$('.fermer').click(function(){
+	document.getElementById("offreFenetre").style.display = "none";
 });
 
-
-
-
+$('#offreFenetre').click(function(event){
+	if (event.target == document.getElementById("offreFenetre")) {
+		document.getElementById("offreFenetre").style.display = "none";
+	  }
+});

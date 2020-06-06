@@ -153,41 +153,32 @@ a>.material-icons{
 }
 
 .deconnexionBouton{
-    display: none;
-    position: relative;
-    right:10rem;
+    display: flex;
+    flex-flow: row nowrap;
+
+
 }
 
-.connecte .deconnexionBouton{
+.connexionBouton{
     display: flex;
     flex-flow: row nowrap;
 }
 
-#connexionBouton{
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-.connecte #connexionBouton{
-    display: none;
+.connexionBouton:hover{
+    text-decoration: none;
 }
 
 .monEspace{
-    display: none;
-    position: relative;
-    right: 9rem;
-}
-
-.connecte .monEspace{
     display: flex;
     flex-flow: row nowrap;
+
+
 }
 
 .monEspace a{
     display: flex;
     flex-flow: row nowrap;
 }
-
 
 /**Fenetre de connexion**/
 
@@ -359,6 +350,19 @@ transition: all 0.5s ease-out;
 
 /**RECHERCHE**/
 
+.rienTrouve{
+    width: 100%;
+    display: flex;
+    flex-flow: row  nowrap;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.rienTrouve >span{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
 #conteneurRecherche{
     display: flex;
     flex-flow: column nowrap;
@@ -512,7 +516,7 @@ background-color: #CA1809;
     padding:1rem
 }
 
-#localisation{
+#ville{
     border: 0px;
 }
 
@@ -651,6 +655,10 @@ color:#CA1809;
     z-index: 100;
 }
 
+.conteneurAutres{
+    background-color: rgb(231, 231, 231);
+}
+
 .critMin{
     margin-bottom: 1rem;
 }
@@ -708,6 +716,7 @@ color:#CA1809;
 }
 
 .titreBien{
+    color: black;
     font-size: 4rem;
     font-weight: bold;
     transition: all 0.5s ease-out;
@@ -718,8 +727,15 @@ color:#CA1809;
     color: rgb(236, 29, 11);
     transition: all 0.5s ease-out;
     cursor: pointer;
+    text-decoration: none;
 }
 
+.titreBien:focus{
+    color: rgb(236, 29, 11);
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+}
 
 .prixBien, .prixInfo{
     color: #CA1809;
@@ -737,6 +753,65 @@ color:#CA1809;
 
 .localisationInfo{
     margin-right: 0.4rem;
+}
+
+.cacheId{
+    display: none;
+}
+
+.textBienTitre{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.textBienTitre >#favBouton {
+    padding: 2rem;
+    font-size: 5rem;
+    color: #CA1809;
+}
+
+.textBienTitre >#favBouton:hover {
+    color: rgb(236, 29, 11);
+    text-decoration: none;
+}
+
+.favAccueil{
+    font-size: 5rem;
+    color: #CA1809;
+}
+
+.favAccueil:hover{
+    font-size: 5rem;
+    color: rgb(236, 29, 11);
+}
+
+.titreBienFav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.conteneurPagination{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.conteneurPagination > .pagination{
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    transition: all 0.5s ease-in-out;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.conteneurPagination > a:hover{
+    text-decoration: none;
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
 }
 
 /***FOOTER***/
@@ -800,6 +875,7 @@ color:#CA1809;
 }
 
 .conteneurApplication{
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -817,15 +893,21 @@ color:#CA1809;
 .buttonApplication{
     font-size: 2rem;
     color: white;
+    text-decoration: none;
     padding: 1rem;
     background-color: #CA1809;
     transition: all 0.5s ease-out;
 }
 
 .buttonApplication:hover{
+    color: white;
+    text-decoration: none;
     background-color: rgb(236, 29, 11);
     cursor: pointer;
     transition: all 0.5s ease-out;
+}.buttonApplication:focus{
+    color: white;
+    text-decoration: none;
 }
 
 .reseauxSociaux{
@@ -871,6 +953,36 @@ color:#CA1809;
 
 .copyright{
     font-size: 0.8em;
+}
+
+.retourHaut{
+    position: relative;
+    right : 100;
+}
+
+.retourHaut>i{
+    color: #CA1809;
+    font-size: 5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.retourHaut>i:hover{
+    color: rgb(236, 29, 11);
+    transition: all 0.5s ease-in-out;
+}
+
+.margeApp{
+    width: 40%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.margeApp>img{
+    position:absolute;
+    width: 15%;
 }
 
 /*Mon Espace*/
@@ -961,6 +1073,16 @@ color:#CA1809;
     margin-bottom: 2rem;
 }
 
+.conteneurInfoDroitAgent{
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    padding: 1%;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(197, 197, 197);
+    margin-bottom: 2rem;
+}
+
 .champInfo{
     display: flex;
     flex-flow: column nowrap;
@@ -982,6 +1104,7 @@ color:#CA1809;
     border-radius: 10px;
     padding: 0.8rem;
     margin-bottom: 2.5rem;
+    margin-top: 0.8rem;
     transition: all 0.5s ease-out;
 }
 
@@ -1012,11 +1135,40 @@ color:#CA1809;
 
 /* DEPOSER */
 
+.agenceMessage{
+    margin-top: 1rem;
+}
+
 .conteneurDeposerTout{
     display: flex;
     flex-flow: column nowrap;
     width: 80%;
     margin: 0 auto;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.maison{
+    margin-right: 1rem;
+}
+
+input[type="radio"] + label::before {
+width: 15px;
+height: 15px;
+border: 1px solid black;
+border-radius: 50%;
+display: block;
+content: "";
+float: left;
+margin-right: 5px;
+margin-top: 5px;
+}
+
+input[type="radio"]:checked+label::before {
+box-shadow: inset 0px 0px 0px 2px #fff;
+background-color: #CA1809;
 }
 
 .conteneurDeposer > form > fieldset{
@@ -1079,27 +1231,41 @@ color:#CA1809;
     width: 100%;
 }
 
-.ajoutDependance{
+.ajoutDependance, .supprimerDependance{
     margin-top: 1rem;
     font-size: 3rem;
 }
 
 .ajoutDependance:hover{
-    color: #CA1809;
+    color: green;
     cursor: pointer;
 }
 
 .ajoutDependance:hover + span{
+    color: green;
+}
+
+.supprimerDependance:hover{
+    color: #CA1809;
+    cursor: pointer;
+}
+
+.supprimerDependance:hover + span{
     color: #CA1809;
 }
 
-.conteneurAjoutDependance{
+.conteneurAjoutDependance, .conteneurSupprimerDependance{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
 }
 
 .conteneurAjoutDependance >span{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.conteneurSupprimerDependance > span {
     margin-top: 1rem;
     margin-left: 1rem;
 }
@@ -1204,22 +1370,56 @@ color:#CA1809;
     border-bottom-right-radius: 20px;
 }
 
+.survolImage > a {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.survolImage > a:hover {
+    text-decoration: none;
+}
+
 .poubelle{
     font-size: 8rem;
+    color: white;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
 .poubelle:hover{
     color: #CA1809;
+    transition: all 0.5s ease-in-out;
 }
 
 .consulter{
     font-size: 8rem;
     cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
 }
 
 .consulter:hover{
-    color: rgb(6, 138, 39);
+    color: rgb(3, 202, 53);
+    transition: all 0.5s ease-in-out;
+}
+
+.textPoubelle, .textConsulter, .textModifierBien{
+    margin-top: 0.5rem;
+    font-size: 2rem;
+}
+
+.modifierBien{
+    font-size: 8rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.modifierBien:hover{
+    color: yellow;
+    transition: all 0.5s ease-in-out;
 }
 
 .survolImage:hover{
@@ -1269,8 +1469,18 @@ color:#CA1809;
     margin-right: 0.4rem;
 }
 
+.margeFav{
+    padding-top: 3rem;
+}
+
 /*MON ESPACE SWITCH*/
 
+.deplierVend .conteneurVend{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: left;
+}
 
 .deplierFav .conteneurFav{
     display: flex;
@@ -1305,6 +1515,10 @@ color:#CA1809;
     background-color: #CA1809;
 }
 
+.deplierVend .boutonVend{
+    background-color: #CA1809;
+}
+
 .deplierFav .boutonFav{
     background-color: #CA1809;
     text-decoration: none;
@@ -1319,6 +1533,10 @@ color:#CA1809;
 }
 
 .deplierInfo .boutonInfo > a{
+    color: white;
+}
+
+.deplierVend .boutonVend > a{
     color: white;
 }
 
@@ -1339,4 +1557,390 @@ color:#CA1809;
     text-decoration: none;
 }
 
+/*REDIRECTION*/
+.redirection{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(248, 248, 248)
+}
 
+.conteneurRedirect{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    padding: 5rem;
+    border: 0px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px black;
+}
+
+.conteneurRedirect span{
+    margin-bottom: 2rem;
+    color: #CA1809;
+    font-size: 2rem;
+}
+
+.conteneurRedirect{
+    text-align: center;
+}
+
+.conteneurRedirect #accueilStephi{
+    display: inline-block;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.vendeurMessage .conteneurVendeurMessage .lienRedirectionVendeur{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vendeurMessage .conteneurVendeurMessage .lienRedirectionVendeur > a{
+    color: black;
+    text-decoration: none;
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+.vendeurMessage .conteneurVendeurMessage .lienRedirectionVendeur > a:hover{
+    color: #CA1809;
+}
+
+/* PAGE DE BIEN*/
+
+.conteneurTT{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background-color: rgb(248, 248, 248);
+}
+
+.conteneurTB{
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: center;
+   width: 80%;
+   border-radius: 20px;
+   background-color: white;
+   box-shadow: 0px 5px 5px black;
+   margin-top: 4rem;
+   margin-bottom: 4rem;
+}
+
+.conteneurTBInfo{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+/* CONTENEUR 1*/
+
+.carousel-inner{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.TBInfoImgImg{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 40%;
+}
+
+.TBInfoImgImg img{
+    width: 600px;
+    height: 400px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.TBtitreBien{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.conteneurOffreFavTete{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    margin-top: 3rem;
+}
+
+.secondeOffreFav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.conteneurOffreFavTete{
+    width: 100%;
+}
+
+.conteneurOffreFavTete > span{
+    width: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+    font-size: 2.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span:hover{
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span > i{
+    margin-right: 1rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.TBInfoImgText{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.conteneurOffreFavTete > span >a {
+    width: 100%;
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span >a:hover {
+    text-decoration: none;
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span >a:hover i{
+    color: #CA1809;
+    border-color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+/*CONTENEUR 2*/
+.conteneurTBInfoCrit> div{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around; 
+}
+
+.conteneurTBInfoCrit> div>div{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; 
+    align-items:center;
+}
+
+.conteneurTBInfoCrit > div > div > span{
+font-size: 2rem;
+}
+
+.conteneurTBInfoCrit > div > div > span > i{
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+    
+
+.TBlocInfo{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.TBTitre{
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 3rem;
+}
+
+.conteneurTBInfoCrit{
+    border-top: 2px solid rgb(199, 199, 199);
+    border-bottom: 2px solid rgb(199, 199, 199);
+    border-width: 70%;
+}
+
+.critTitre{
+    border-bottom: 2px solid rgb(199, 199, 199);
+    border-width: 60%;
+    margin-bottom: 1rem;
+}
+
+/*CONTENEUR 3*/
+
+.conteneurTBInfoDes, .conteneurTBInfoVend{
+    border-bottom: 2px solid rgb(199, 199, 199);
+    border-width: 70%;
+}
+
+.infoVend{
+    font-weight: bold;
+}
+
+
+/*CONTENEUR 4*/
+.TBlocInfo{
+    margin-bottom: 2rem;
+}
+
+/*CONTENEUR 5*/
+.conteneurOffreFav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+}
+
+.conteneurOffreFav > span{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+    font-size: 2.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFav > span:hover{
+    cursor: pointer;
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFav > span > i{
+    margin-right: 1rem;
+}
+
+/*FENETRE OFFRE*/
+
+.offrefenetre {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.offreFenetreContenu {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 50px;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite form{
+    width: 60%;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite form > div{
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 10%;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite form > div input{
+    padding: 1rem;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.offreFenetreContenu textarea{
+    height: 200px;
+    padding: 1rem;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.envoiOffre{
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 8%;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 0px;
+    background-color: rgb(224, 224, 224);
+    border-radius: 10px;
+    transition: all 0.5s ease-out;
+
+}
+
+.envoiOffre:hover{
+    background-color: #CA1809;
+    transition: all 0.5s ease-out;
+}
+
+.TBInfoImgImg ul, li{
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.conteneurCarousel{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+#agentImmo:disabled{
+    background-color: white;
+}
+
+/**ESPACE AGENT**/
+
+.ajoutBienAgent{
+    background-color: #CA1809;
+    color: white;
+    font-size: 1.5em;
+    padding: 1.5rem;
+    cursor: pointer;
+    border: 0px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px black;
+    transition: all 0.5s ease-out;
+}
+
+.ajoutBienAgent:hover{
+    background-color: rgb(236, 29, 11);
+    transition: all 0.5s ease-out;
+}

@@ -22,24 +22,51 @@
     <script src="js/main.js"></script>
 </head>
 <body>
+<?php
+try{
+    $cnx = new PDO('mysql:host=localhost;dbname=UF;port=3307', 'root','');
+}
+catch(PDOException $e){
+    print($e->getMessage()."\n");
+    exit;
+}
+$selectAgence="SELECT id_agence, nom_agence FROM agence";
+$stmt1=$cnx->prepare($selectAgence);
+$stmt1->execute();
+?>
     <div id="enTete">
         <div id="enTeteGauche">
             <a id="accueilStephi" href="index.php">StephiPlace</a>
             <div class="depotAnnonce">
-                <a href="deposer.php"><i class='far fa-plus-square'></i><span>Déposer une annonce</span></a>
+            <?php
+            if (isset($_SESSION['email'])&& isset($_SESSION['mdp'])) 
+            {
+                echo'
+                <a href="deposer.php"><i class="far fa-plus-square"></i><span>Déposer une annonce</span></a>';}
+            else{
+                echo'
+                <a class="connexionBouton" href="#"><i class="far fa-plus-square"></i><span>Déposer une annonce</span></a>';
+            }
+            ?>
             </div>
         </div>
         <div id="enTeteDroite">
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="#">Favoris</a></li>
-                    <li><a id="connexionBouton" href="#"><i class="material-icons">person</i>Connexion</a></li>
-                    <li class="monEspace"><a href="monespace.php"><i class="material-icons">person</i>Espace</a></li>
-                    <li><a class="deconnexionBouton" href="#"><i class="material-icons">person</i>Déconnexion</a></li>
+                    <?php
+    if (isset($_SESSION['email'])&& isset($_SESSION['mdp'])) 
+    {
+        echo '<li class="monEspace"><a href="monespace.php"><i class="material-icons">person</i>Espace</a></li>
+        <li><a class="deconnexionBouton" href="deconnexion.php"><i class="material-icons">person</i>Déconnexion</a></li>';
+    } else {
+        echo '<li><a class="connexionBouton" href="#"><i class="material-icons">person</i>Connexion</a></li>';
+    }      
+    ?>
                 </ul>
             </nav>
         </div>
+    </div>
         <div id="connexionFenetre" class="fenetre">
             <div class="connexionFenetreContenu">
                 <span class="fermer">&times;</span>
@@ -48,14 +75,14 @@
                         <p class="bienvenue">Bienvenue !</p>
                         <p class="bienvenueTexte">Merci de vous connecter pour accéder à toutes nos fonctionnalités.</p>
                     </div>
-                    <form action="">
+                    <form action="login.php" method="post">
                         <div class="champConteneur">
                             <label for="email">E-mail</label>
-                            <input type="text" id="email" name="email">
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="champConteneur">
                             <label for="mdp">Mot de passe</label>
-                            <input type="text" id="mdp" name="mdp">
+                            <input type="password" id="mdp" name="mdp" required>
                             <a class="motOublie" href="#">Mot de passe oublié</a>
                         </div>
                         <a class="okConnexion" href="indexphpl"><input class="envoiConnexion" type="submit" value="Se connecter"></a>
@@ -74,45 +101,64 @@
                     <p class="bienvenue">Inscription</p>
                     <p class="bienvenueTexte">Merci de compléter tous les champs ci-dessous pour vous inscrire.</p>
                 </div>
-                <form action="" method="post">
+                <form action="compte.php" method="post">
                     <div class="champConteneur">
                         <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" name="prenom">
+                        <input required type="text" id="prenom" name="prenom">
                     </div>
                     <div class="champConteneur">
                         <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom">
+                        <input required type="text" id="nom" name="nom">
                     </div>
                     <div class="champConteneur">
                         <label for="email">E-mail</label>
-                        <input type="text" id="email" name="email">
+                        <input required type="email" id="email" name="email">
                     </div>
                     <div class="champConteneur">
                         <label for="mdp">Mot de passe</label>
-                        <input type="text" id="mdp" name="mdp">
-                    </div>
-                    <div class="champConteneur">
-                        <label for="mdp">Confirmez votre mot de passe</label>
-                        <input type="text" id="mdp" name="mdp">
+                        <input required type="password" id="mdp" name="mdp1">
                     </div>
                     <div class="champConteneur">
                         <label for="naissance">Date de naissance</label>
-                        <input type="date" id="naissance" name="naissance">
+                        <input required type="date" id="naissance" name="naissance">
                     </div>
                     <div class="champConteneur">
                         <label for="telephone">Téléphone</label>
-                        <input type="text" id="telephone" name="telephone">
+                        <input required type="tel" pattern="[0]{1}[0-9]{1}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" id="telephone" name="telephone">
+                        <small>Format: 03-46-78-90-45</small>
                     </div>
                     <div class="champConteneur">
                         <label for="adresse">Adresse</label>
-                        <input type="text" id="adresse" name="adresse">
+                        <input required type="text" id="adresse" name="adresse">
                     </div>
+                    <div class="champConteneur">
+                        <label for="compadresse">Complément d'adresse</label>
+                        <input type="text" id="compAdresse" name="compAdresse">
+                    </div>
+                    <div class="champConteneur">
+                        <label for="ville">Ville</label>
+                        <input required type="text" id="ville" name="ville">
+                    </div>
+                    <div class="champConteneur">
+                        <label for="cp">Code postal</label>
+                        <input required type="text" id="cp" name="cp">
+                    </div>
+                    <div class="champDepot">
+                                <span class="titreAgenceDepot">Agence de référence</span>
+                                <span class="choixTypeBien">
+                                    <select name="agenceListe" id="agenceListe" class="choixTypeBienSelection">
+                                    <?php foreach ($stmt1 as $c) { ?>
+                                        <option value="<?=$c['id_agence']?>"><?=$c['nom_agence']?></option>
+                                            <?php } ?>
+                                    </select>
+                                </span>
+                            </div>
                     <div class="champConteneur">
                         <span class="souhaitezVous">Souhaitez vous devenir acheteur, vendeur ou les deux?</span>
                         <div class="typeMembre">
-                            <input type="checkbox" id="acheteur" name="acheteur" class="box">
+                            <input checked="checked" type="checkbox" id="acheteur" name="typeMembre" class="box" value="Acheteur">
                             <label for="acheteur" class="acheteur">Acheteur</label>
-                            <input type="checkbox" id="vendeur" name="vendeur" class="box">
+                            <input type="checkbox" id="vendeur" name="typeMembre" class="box" value="Vendeur">
                             <label for="vendeur">Vendeur</label>
                         </div>
                     </div>
@@ -167,5 +213,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>

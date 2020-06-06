@@ -1,3 +1,0 @@
-USE UF;
-SELECT * FROM biens
-ORDER BY id_bien DESC
