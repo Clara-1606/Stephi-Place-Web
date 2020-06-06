@@ -1,0 +1,1946 @@
+/*Responsive jusqu'à 1215px*/
+body{
+    margin: 0;
+    position: relative;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+#conteneurTout{
+    background-color: rgb(248, 248, 248);
+    padding-bottom: 1%;
+}
+
+/**Entête**/
+
+#enTete{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-bottom: 5px solid #CA1809;
+}
+
+#enTeteGauche{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+#accueilStephi{
+    color: #CA1809;
+    font-size: 5rem;
+    font-family: 'Fredoka One', cursive;
+}
+
+#accueilStephi:hover{
+    color: #CA1809;
+    text-decoration: none;
+}
+
+#accueilStephi:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 1s ease, background-color .5s ease;
+}
+#accueilStephi:hover:after {
+    width: 90%;
+    background: #CA1809;
+}
+
+#enTeteGauche > a{
+    margin-right: 10rem;
+}
+
+#enTeteGauche > .depotAnnonce{
+    width: 40%;
+    transition: all 0.5s ease-out;
+}
+
+#enTeteGauche > .depotAnnonce > a > i{
+    font-size: 3rem;
+    margin-right: 2rem;
+    color: white;
+}
+
+#enTeteGauche > .depotAnnonce > a > span{
+    margin-right: 2%;
+    color: white;
+}
+
+#enTeteGauche > .depotAnnonce > a{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    cursor: pointer;
+    border: 0px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px black;
+    background-color: #CA1809;
+    transition: all 0.5s ease-out;
+}
+
+#enTeteGauche > .depotAnnonce > a:hover{
+    background-color: rgb(236, 29, 11);
+    transition: all 0.5s ease-in;
+}
+
+#enTeteDroite{
+    width: 50%;
+}
+
+#enTeteDroite > nav >ul{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 0;
+    padding:0;
+}
+
+#enTeteDroite > nav > ul > li{
+
+    list-style-type: none;
+    background-color: white;
+    transition: all 0.5s ease-out;
+}
+
+#enTeteDroite > nav > ul > li > a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+#enTeteDroite > nav > ul > li > a:hover{
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+    color: #CA1809;
+}
+
+#enTeteDroite > nav > ul > li > a:hover> i{
+    text-decoration: none;
+    transition: all 0.5s ease-in;
+    color: #CA1809;
+    border: 1px #CA1809 solid;
+}
+
+a>.material-icons{
+    color: black;
+    padding:2%;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.deconnexionBouton{
+    display: flex;
+    flex-flow: row nowrap;
+
+
+}
+
+.connexionBouton{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.connexionBouton:hover{
+    text-decoration: none;
+}
+
+.monEspace{
+    display: flex;
+    flex-flow: row nowrap;
+
+
+}
+
+.monEspace a{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+/**Fenetre de connexion**/
+
+.fenetre {
+display: none;
+position: fixed;
+z-index: 1;
+padding-top: 100px;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.4);
+}
+
+.connexionFenetreContenu {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 50px;
+}
+
+.connexionFenetreContenu > .connexionFenetreContenuSuite{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.connexionFenetreContenu > .connexionFenetreContenuSuite form{
+    width: 60%;
+}
+
+.connexionFenetreContenu > .connexionFenetreContenuSuite form > div{
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 10%;
+}
+
+.connexionFenetreContenu > .connexionFenetreContenuSuite form > div input{
+    padding: 4%;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.bienvenue{
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.bienvenueTexte{
+    text-align: center;
+}
+.envoiConnexion{
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 8%;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 0px;
+    background-color: rgb(224, 224, 224);
+    border-radius: 10px;
+    transition: all 0.5s ease-out;
+
+}
+
+.envoiConnexion:hover{
+    background-color: #CA1809;
+    transition: all 0.5s ease-out;
+}
+
+.motOublie{
+    color: rgb(126, 126, 248);
+    transition: all 0.5s ease-out;
+}
+
+.motOublie:hover{
+    color: #CA1809;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+}
+
+.creerCompte{
+    width: 100%;
+    text-align: center; 
+    font-size: 1.8rem;
+    color: rgb(126, 126, 248);
+    transition: all 0.5s ease-out;
+}
+
+.creerCompte:hover{
+    color: #CA1809;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+}
+
+.fermer {
+color: #aaaaaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.fermer:hover,
+.fermer:focus {
+color: #CA1809;
+text-decoration: none;
+cursor: pointer;
+transition: all 0.5s ease-out;
+}
+
+/* INSCRIPTION */
+
+.souhaitezVous{
+    color: #CA1809;
+    text-align: center;
+}
+
+.inscriptionFenetreContenu {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 50px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.inscriptionFenetreContenu > .inscriptionFenetreContenuSuite{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.inscriptionFenetreContenu > .inscriptionFenetreContenuSuite form{
+    width: 80%;
+}
+
+.inscriptionFenetreContenu > .inscriptionFenetreContenuSuite form > div{
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 3%;
+}
+
+.inscriptionFenetreContenu > .inscriptionFenetreContenuSuite form > div input{
+    padding: 2%;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+/**Image Intro**/
+
+.imageIntro{
+    background-image: url(../img/imageintro.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+}
+
+/**RECHERCHE**/
+
+.rienTrouve{
+    width: 100%;
+    display: flex;
+    flex-flow: row  nowrap;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.rienTrouve >span{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#conteneurRecherche{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    border: 0;
+    border-radius: 20px;
+    padding: 1%;
+    margin-bottom: 5%;
+    margin-top: 2.5%;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(197, 197, 197);
+}
+
+#formulaireRecherche{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    font-size: 2rem;
+}
+
+
+
+.conteneurLocalisationTypeBien{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.agence{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.agence > label{
+    color: #CA1809;
+    font-size: 2.5rem;
+}
+
+#agenceListe, #dependanceListe{
+    padding-top: 1rem;
+    padding-right: 5rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+
+}
+
+.choixTypeBien{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+@supports (pointer-events: none) and ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
+
+    .choixTypeBien {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .choixTypeBienSelection {
+        border: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; 
+    }
+
+    .choixTypeBien::before, .choixTypeBien::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .choixTypeBien::after {
+        content: "\25BC";
+        height: 1em;
+        font-size: 0.8em;
+        line-height: 1;
+        right: .75em;
+        top: 50%; margin-top: -.5em;
+    }
+
+    .choixTypeBien::before {
+        width: 2em;
+        right: 0; top: 0; bottom: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .choixTypeBienSelection[disabled] {
+        color: #CA1809;
+    }
+
+    .choixTypeBien.choixTypeBien--disabled::after {
+        color: #CA1809;
+    }
+
+    .choixTypeBien::before {
+        top: .5em; bottom: .5em;
+        background-color: #fff;
+        border-left: 1px solid rgba(0,0,0,.1);
+    }
+
+    .choixTypeBien::after {
+        color: #CA1809;
+    }
+}
+
+.typebien{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.maison{
+    margin-right: 1rem;
+}
+
+input[type="checkbox"] + label::before {
+width: 15px;
+height: 15px;
+border: 1px solid black;
+display: block;
+content: "";
+float: left;
+margin-right: 5px;
+margin-top: 5px;
+}
+
+input[type="checkbox"]:checked+label::before {
+box-shadow: inset 0px 0px 0px 2px #fff;
+background-color: #CA1809;
+}
+
+.conteneurLocalisation{
+    margin-left: 6rem;
+}
+
+.localisationSaisie{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding:1rem
+}
+
+#ville{
+    border: 0px;
+}
+
+.fa-map-marker{
+color:#CA1809;
+}
+
+
+
+/***Liste Article***/
+
+#conteneurTout{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+/* BARRE DE RECHERCHE */
+
+.conteneurAutresCriteres{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.conteneurCriteres{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.conteneurCriteres>i{
+    color: #CA1809;
+}
+
+.conteneurCriteres:hover{
+    cursor: pointer;
+}
+
+#conteneurEnvoieRecherche{
+    margin-top: 3rem;
+    padding:1rem;
+    border: 0;
+    border-radius: 20px;
+    background-color: #CA1809;
+    color: white;
+    font-size: 3rem;
+    transition: all 0.5s ease-out;
+}
+
+.envoieRecherche{
+    border: 0;
+    background-color: #CA1809;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+#conteneurEnvoieRecherche:hover .envoieRecherche{
+    background-color: rgb(236, 29, 11);
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+#conteneurEnvoieRecherche:hover{
+    background-color: rgb(236, 29, 11);
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+#conteneurCriteresRecherche{
+    width: 100%;
+}
+
+.criteres{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 100;
+}
+
+.critereSuperficie{
+    display: none;
+    position: absolute;
+    opacity: 0;
+    top: 39.5em;
+    left: 31.3em;
+}
+
+.criterePrix{
+    display: none;
+    position: absolute;
+    opacity: 0;
+    top: 39.5em;
+    left: 48.5em;
+}
+
+.criterePiece{
+    display: none;
+    position: absolute;
+    opacity: 0;
+    top: 39.5em;
+    left: 40.65em;
+}
+
+.deplierPrix .criterePrix{
+    display: flex;
+    flex-flow: column nowrap;
+    opacity: 1;
+}
+
+.deplierSuperficie .critereSuperficie{
+    display: flex;
+    flex-flow: column nowrap;
+    opacity: 1;
+}
+
+.deplierPiece .criterePiece{
+    display: flex;
+    flex-flow: column nowrap;
+    opacity: 1;
+}
+
+.crit{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    z-index: 100;
+}
+
+.conteneurAutres{
+    background-color: rgb(231, 231, 231);
+}
+
+.critMin{
+    margin-bottom: 1rem;
+}
+
+/*LISTE BIENS*/
+
+#conteneurBienTout{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+}
+
+.conteneurBien{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgb(197, 197, 197);
+    margin-bottom: 2rem;
+}
+
+.conteneurBien > .imageBien{
+    width: 30%;
+    overflow: hidden
+}
+
+.imageBien>img{
+    width: 100%;
+    height: 30rem;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.texteBien>img:hover{
+    scale: 1.2;
+    transition: all 0.5s ease-out;
+}
+
+.conteneurBien > .texteBien{
+    width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.infoBien{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.description{
+    margin-bottom: 2rem;
+}
+
+.titreBien{
+    color: black;
+    font-size: 4rem;
+    font-weight: bold;
+    transition: all 0.5s ease-out;
+    margin-bottom: 2rem;
+}
+
+.titreBien:hover{
+    color: rgb(236, 29, 11);
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.titreBien:focus{
+    color: rgb(236, 29, 11);
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.prixBien, .prixInfo{
+    color: #CA1809;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.prixInfo{
+    margin-right: 0.4rem;
+}
+
+.localisationBien, .localisationInfo{
+    font-size: 1.8rem;
+}
+
+.localisationInfo{
+    margin-right: 0.4rem;
+}
+
+.cacheId{
+    display: none;
+}
+
+.textBienTitre{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.textBienTitre >#favBouton {
+    padding: 2rem;
+    font-size: 5rem;
+    color: #CA1809;
+}
+
+.textBienTitre >#favBouton:hover {
+    color: rgb(236, 29, 11);
+    text-decoration: none;
+}
+
+.favAccueil{
+    font-size: 5rem;
+    color: #CA1809;
+}
+
+.favAccueil:hover{
+    font-size: 5rem;
+    color: rgb(236, 29, 11);
+}
+
+.titreBienFav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.conteneurPagination{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.conteneurPagination > .pagination{
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    transition: all 0.5s ease-in-out;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.conteneurPagination > a:hover{
+    text-decoration: none;
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+/***FOOTER***/
+
+.introFooter{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.titreFooter{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #CA1809;
+}
+
+#foot{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: rgb(219, 219, 219);
+}
+
+.lienFinLogo{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    color: #CA1809;
+    font-size: 2rem;
+    margin-top: 3rem;
+}
+
+
+.lienFinLogo > .stats > span{
+    font-weight: bold;
+}
+
+.finLogo{
+    position: absolute;
+    top: 89.5%;
+    left: 10%;
+    width: 15%;
+}
+
+.finLogoB{
+    position: absolute;
+    top: 82.25%;
+    left: 10%;
+    width: 15%;
+}
+
+.finLogoC{
+    position: absolute;
+    top: 85.05%;
+    left: 10%;
+    width: 15%;
+}
+
+.conteneurApplication{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+.conteneurApplication > span{
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: #CA1809;
+}
+
+.buttonApplication{
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    background-color: #CA1809;
+    transition: all 0.5s ease-out;
+}
+
+.buttonApplication:hover{
+    color: white;
+    text-decoration: none;
+    background-color: rgb(236, 29, 11);
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}.buttonApplication:focus{
+    color: white;
+    text-decoration: none;
+}
+
+.reseauxSociaux{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin-left: 38%;
+    margin-right: 38%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.twitter, .fa{
+    margin-right: 2rem;
+}
+
+
+.finMenu{
+    width: 100%;
+}
+
+.finMenu > ul{
+    display : flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.finMenu > ul > li {
+    list-style: none;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+.finMenu > ul > li > a {
+    font-size: 1.4em;
+    color: black;
+    text-decoration: none;
+}
+
+.finMenu > ul > li > a:hover {
+    color: darkgray;
+}
+
+.copyright{
+    font-size: 0.8em;
+}
+
+.retourHaut{
+    position: relative;
+    right : 100;
+}
+
+.retourHaut>i{
+    color: #CA1809;
+    font-size: 5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.retourHaut>i:hover{
+    color: rgb(236, 29, 11);
+    transition: all 0.5s ease-in-out;
+}
+
+.margeApp{
+    width: 40%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.margeApp>img{
+    position:absolute;
+    width: 15%;
+}
+
+/*Mon Espace*/
+
+#conteneurEspace{
+    margin-bottom: 3rem;
+}
+
+.membreTitre{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.membreTitre >span{
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.conteneurMenuInfo{
+    display: flex;
+    flex-flow: row nowrap;
+    padding-left: 2rem;
+    
+}
+
+.conteneurMenuGauche{
+    width: 30%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.conteneurMenuGauche > ul{
+    margin:0;
+}
+
+.conteneurMenuGauche > ul > li{
+    width: 60%;
+    color: black;
+    list-style-type: none;
+    background-color: rgb(224, 224, 224);
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+
+.conteneurMenuGauche > ul > li >a{
+    display: inline-block;
+    color: black;
+    font-size: 2rem;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.conteneurMenuGauche > ul > li:hover{
+    background-color: #CA1809;
+    transition: all 0.5s ease-out;
+}
+
+.conteneurMenuGauche > ul > li>a:hover{
+    text-decoration: none;
+}
+
+.selectionMenu{
+    border-radius: 20px;
+    background-color: #CA1809;
+    color: white;
+}
+
+
+.superConteurInfoDroit{
+    width: 60%;
+}
+.conteneurInfoDroit{
+    width: 100%;
+    display: none;
+    border: 0;
+    border-radius: 20px;
+    padding: 1%;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(197, 197, 197);
+    margin-bottom: 2rem;
+}
+
+.conteneurInfoDroitAgent{
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    padding: 1%;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(197, 197, 197);
+    margin-bottom: 2rem;
+}
+
+.champInfo{
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 1rem;
+}
+
+.champInfo input{
+    padding: 0.7em;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.infoValide{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #CA1809;
+    border: 0;
+    border-radius: 10px;
+    padding: 0.8rem;
+    margin-bottom: 2.5rem;
+    margin-top: 0.8rem;
+    transition: all 0.5s ease-out;
+}
+
+.infoValide:hover{
+    background-color: rgb(236, 29, 11);
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.choixAgenceInfo{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.modifAgence{
+    width: 30%;
+    margin-bottom: 1rem;
+}
+
+.modifAgenceValide{
+    width: 20%;
+}
+
+.selectAgenceEspace{
+    font-size: 1.8rem;
+    width: 100%;
+}
+
+/* DEPOSER */
+
+.agenceMessage{
+    margin-top: 1rem;
+}
+
+.conteneurDeposerTout{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+    margin: 0 auto;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.maison{
+    margin-right: 1rem;
+}
+
+input[type="radio"] + label::before {
+width: 15px;
+height: 15px;
+border: 1px solid black;
+border-radius: 50%;
+display: block;
+content: "";
+float: left;
+margin-right: 5px;
+margin-top: 5px;
+}
+
+input[type="radio"]:checked+label::before {
+box-shadow: inset 0px 0px 0px 2px #fff;
+background-color: #CA1809;
+}
+
+.conteneurDeposer > form > fieldset{
+    margin-bottom: 3rem;
+}
+
+.conteneurDeposer > form > fieldset > legend{
+    color: #CA1809;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.etageAppartement{
+    display: none;
+}
+
+.typeBienDepot{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.titreTypeBienDepot{
+    color: #CA1809;
+    font-size: 2.5rem;
+    font-weight: bold;  
+}
+
+.titreAgenceDepot{
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.conteneurChampDepot{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.conteneurChampDepot > div{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 40%;
+}
+
+.champDepot{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.champDepot input, select{
+    padding: 0.7em;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.ajoutDependance, .supprimerDependance{
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+
+.ajoutDependance:hover{
+    color: green;
+    cursor: pointer;
+}
+
+.ajoutDependance:hover + span{
+    color: green;
+}
+
+.supprimerDependance:hover{
+    color: #CA1809;
+    cursor: pointer;
+}
+
+.supprimerDependance:hover + span{
+    color: #CA1809;
+}
+
+.conteneurAjoutDependance, .conteneurSupprimerDependance{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.conteneurAjoutDependance >span{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.conteneurSupprimerDependance > span {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.conteneurAjoutPlus{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.conteneurDepAjout{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.conteneurDepAjout > .conteneurAjoutPlus >div{
+    width: 40%;
+}
+
+.conteneurDepInfo{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.conteneurEnvoieValiderAnnonce{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.envoieValiderAnnonce{
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: #CA1809;
+    border: 0;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.envoieValiderAnnonce:hover{
+    background-color: rgb(236, 29, 11);
+    transition: all 0.5s ease-in-out;
+}
+
+/*FAVORIS*/
+
+@keyframes opa{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#conteneurFavorisTout{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+}
+
+.conteneurFavoris{
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgb(197, 197, 197);
+    width: 1100px;
+    height: 30rem;
+    position: absolute;
+    z-index:0;
+}
+
+.conteneurFavoris > .imageFavoris{
+    width: 30%;
+    overflow: hidden;
+}
+
+.imageFavoris>img{
+    width: 100%;
+    height: 30rem;
+    transition: all 0.5s ease-out;
+}
+
+.survolImage{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    background-color: #44444459;
+    width: 1100px;
+    height: 30rem;
+    position: relative;
+    z-index:1;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.survolImage > a {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.survolImage > a:hover {
+    text-decoration: none;
+}
+
+.poubelle{
+    font-size: 8rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.poubelle:hover{
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+.consulter{
+    font-size: 8rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.consulter:hover{
+    color: rgb(3, 202, 53);
+    transition: all 0.5s ease-in-out;
+}
+
+.textPoubelle, .textConsulter, .textModifierBien{
+    margin-top: 0.5rem;
+    font-size: 2rem;
+}
+
+.modifierBien{
+    font-size: 8rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.modifierBien:hover{
+    color: yellow;
+    transition: all 0.5s ease-in-out;
+}
+
+.survolImage:hover{
+    animation: opa 1s;
+    animation-fill-mode: forwards;
+}
+
+.conteneurFavoris > .texteFavoris{
+    width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.infoFavoris{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.description{
+    margin-bottom: 2rem;
+}
+
+.titreFavoris{
+    font-size: 4rem;
+    font-weight: bold;
+    transition: all 0.5s ease-out;
+    margin-bottom: 2rem;
+}
+
+.prixFavoris, .prixInfo{
+    color: #CA1809;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.prixInfo{
+    margin-right: 0.4rem;
+}
+
+.localisationFavoris, .localisationInfo{
+    font-size: 1.8rem;
+}
+
+.localisationInfo{
+    margin-right: 0.4rem;
+}
+
+.margeFav{
+    padding-top: 3rem;
+}
+
+/*MON ESPACE SWITCH*/
+
+.deplierVend .conteneurVend{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: left;
+}
+
+.deplierFav .conteneurFav{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: left;
+}
+
+.deplierInfo .conteneurInfoP{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: left;
+
+}
+
+.deplierAgence .conteneurAg{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: left;
+}
+
+.deplierId .conteneurId{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: left;
+}
+
+.deplierInfo .boutonInfo{
+    background-color: #CA1809;
+}
+
+.deplierVend .boutonVend{
+    background-color: #CA1809;
+}
+
+.deplierFav .boutonFav{
+    background-color: #CA1809;
+    text-decoration: none;
+}
+
+.deplierId .boutonId{
+    background-color: #CA1809;
+}
+
+.deplierAgence .boutonAgence{
+    background-color: #CA1809;
+}
+
+.deplierInfo .boutonInfo > a{
+    color: white;
+}
+
+.deplierVend .boutonVend > a{
+    color: white;
+}
+
+.deplierFav .boutonFav > a{
+    color: white;
+    text-decoration: none;
+}
+
+.deplierId .boutonId > a{
+    color: white;
+}
+
+.deplierAgence .boutonAgence > a{
+    color: white;
+}
+
+.conteneurMenuGauche > ul > li>a:focus{
+    text-decoration: none;
+}
+
+/*REDIRECTION*/
+.redirection{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(248, 248, 248)
+}
+
+.conteneurRedirect{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    padding: 5rem;
+    border: 0px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px black;
+}
+
+.conteneurRedirect span{
+    margin-bottom: 2rem;
+    color: #CA1809;
+    font-size: 2rem;
+}
+
+.conteneurRedirect{
+    text-align: center;
+}
+
+.conteneurRedirect #accueilStephi{
+    display: inline-block;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.vendeurMessage .conteneurVendeurMessage .lienRedirectionVendeur{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vendeurMessage .conteneurVendeurMessage .lienRedirectionVendeur > a{
+    color: black;
+    text-decoration: none;
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+.vendeurMessage .conteneurVendeurMessage .lienRedirectionVendeur > a:hover{
+    color: #CA1809;
+}
+
+/* PAGE DE BIEN*/
+
+.conteneurTT{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background-color: rgb(248, 248, 248);
+}
+
+.conteneurTB{
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: center;
+   width: 80%;
+   border-radius: 20px;
+   background-color: white;
+   box-shadow: 0px 5px 5px black;
+   margin-top: 4rem;
+   margin-bottom: 4rem;
+}
+
+.conteneurTBInfo{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+/* CONTENEUR 1*/
+
+.carousel-inner{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.TBInfoImgImg{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 40%;
+}
+
+.TBInfoImgImg img{
+    width: 600px;
+    height: 400px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.TBtitreBien{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.conteneurOffreFavTete{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    margin-top: 3rem;
+}
+
+.secondeOffreFav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.conteneurOffreFavTete{
+    width: 100%;
+}
+
+.conteneurOffreFavTete > span{
+    width: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+    font-size: 2.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span:hover{
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span > i{
+    margin-right: 1rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.TBInfoImgText{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.conteneurOffreFavTete > span >a {
+    width: 100%;
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span >a:hover {
+    text-decoration: none;
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFavTete > span >a:hover i{
+    color: #CA1809;
+    border-color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+/*CONTENEUR 2*/
+.conteneurTBInfoCrit> div{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around; 
+}
+
+.conteneurTBInfoCrit> div>div{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; 
+    align-items:center;
+}
+
+.conteneurTBInfoCrit > div > div > span{
+font-size: 2rem;
+}
+
+.conteneurTBInfoCrit > div > div > span > i{
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+    
+
+.TBlocInfo{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.TBTitre{
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 3rem;
+}
+
+.conteneurTBInfoCrit{
+    border-top: 2px solid rgb(199, 199, 199);
+    border-bottom: 2px solid rgb(199, 199, 199);
+    border-width: 70%;
+}
+
+.critTitre{
+    border-bottom: 2px solid rgb(199, 199, 199);
+    border-width: 60%;
+    margin-bottom: 1rem;
+}
+
+/*CONTENEUR 3*/
+
+.conteneurTBInfoDes, .conteneurTBInfoVend{
+    border-bottom: 2px solid rgb(199, 199, 199);
+    border-width: 70%;
+}
+
+.infoVend{
+    font-weight: bold;
+}
+
+
+/*CONTENEUR 4*/
+.TBlocInfo{
+    margin-bottom: 2rem;
+}
+
+/*CONTENEUR 5*/
+.conteneurOffreFav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+}
+
+.conteneurOffreFav > span{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5rem;
+    font-size: 2.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFav > span:hover{
+    cursor: pointer;
+    color: #CA1809;
+    transition: all 0.5s ease-in-out;
+}
+
+.conteneurOffreFav > span > i{
+    margin-right: 1rem;
+}
+
+/*FENETRE OFFRE*/
+
+.offrefenetre {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.offreFenetreContenu {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 50px;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite form{
+    width: 60%;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite form > div{
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 10%;
+}
+
+.offreFenetreContenu > .offreFenetreContenuSuite form > div input{
+    padding: 1rem;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.offreFenetreContenu textarea{
+    height: 200px;
+    padding: 1rem;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+.envoiOffre{
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 8%;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 0px;
+    background-color: rgb(224, 224, 224);
+    border-radius: 10px;
+    transition: all 0.5s ease-out;
+
+}
+
+.envoiOffre:hover{
+    background-color: #CA1809;
+    transition: all 0.5s ease-out;
+}
+
+.TBInfoImgImg ul, li{
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.conteneurCarousel{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+#agentImmo:disabled{
+    background-color: white;
+}
+
+/**ESPACE AGENT**/
+
+.ajoutBienAgent{
+    background-color: #CA1809;
+    color: white;
+    font-size: 1.5em;
+    padding: 1.5rem;
+    cursor: pointer;
+    border: 0px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px black;
+    transition: all 0.5s ease-out;
+}
+
+.ajoutBienAgent:hover{
+    background-color: rgb(236, 29, 11);
+    transition: all 0.5s ease-out;
+}
